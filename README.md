@@ -2,6 +2,11 @@
 
 This repo serves as a basic boilerplate to create an extension for [LiteBot-Mod](https://github.com/iDarkLightning/litebot-mod)
 
+Along with containing boilerplate code for creating an extension for LiteBot, this repo
+also contains boilerplate code to create an extension for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
+by [gnembon](https://github.com/gnembon). The code for the boilerplate is taken from
+the [example-extension](https://github.com/gnembon/fabric-carpet-extension-example-mod)
+
 The primary purpose of an extension is to hook into when the before and after of
 a command on [LiteBot](https://github.com/iDarkLightning/LiteBot) being executed.
 The extension can also be used to dispatch custom events to LiteBot.

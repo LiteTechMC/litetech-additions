@@ -6,7 +6,10 @@ public class LiteBotModExtension implements DedicatedServerModInitializer {
 
     @Override
     public void onInitializeServer() {
-        // Register our extension
+        // Register LiteBot extension
         ExampleExtension.register();
+
+        // Register carpet extension
+        litebotmodextension.carpet.ExampleExtension.register();
     }
 }
