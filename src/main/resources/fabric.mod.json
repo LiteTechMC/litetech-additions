@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "litebot-mod-extension",
+  "id": "litetech-additions",
   "version": "${version}",
-  "name": "Litebot Mod Extension Example",
-  "description": "This is an example extension for LiteBot-Mod",
+  "name": "LiteTech Additions",
+  "description": "Additions for the LiteTech Server",
   "authors": [
-    "Me!"
+    "iDarkLightning"
   ],
   "contact": {
-    "website": "https://web.me",
-    "repo": "https://github.com/iDarkLightning/litebot-mod-extension.git"
+    "website": "https://litetech.cf",
+    "repo": "https://github.com/LiteTechMC/litetech-additions"
   },
   "license": "MIT",
   "environment": "server",
   "entrypoints": {
     "server": [
-      "litebotmodextension.LiteBotModExtension"
+      "cf.litetech.additions.LiteTechAdditions"
     ]
   },
   "mixins": [
-    "litebot-mod-extension.mixins.json"
+    "litetech-additions.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.3",
     "minecraft": "1.16.3",
-    "litebot-mod": "*"
+    "litebot-mod": "*",
+    "carpet": "*"
   }
 }
