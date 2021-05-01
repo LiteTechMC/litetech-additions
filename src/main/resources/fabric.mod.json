@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "litebot-mod-extension",
+  "version": "${version}",
+  "name": "Litebot Mod Extension Example",
+  "description": "This is an example extension for LiteBot-Mod",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "website": "https://web.me",
+    "repo": "https://github.com/iDarkLightning/litebot-mod-extension.git"
+  },
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "litebotmodextension.LiteBotModExtension"
+    ]
+  },
+  "mixins": [
+    "litebot-mod-extension.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "minecraft": "1.16.3",
+    "litebot-mod": "*"
+  }
+}
