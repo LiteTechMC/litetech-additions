@@ -24,7 +24,6 @@ public abstract class PlayerManagerMixin {
         if (BridgeConnectHook.getConnectedPlayers().contains(sender)) {
             ci.cancel();
             assert sender != null;
-            System.out.println("check");
             sender.sendSystemMessage(message, senderUuid);
         }
     }

@@ -18,9 +18,7 @@ public class BridgeDisconnectHook extends CommandHook {
     @Override
     public void afterInvoke(ExecutingCommand command) {
         try {
-            System.out.println("disconnection");
             BridgeConnectHook.getConnectedPlayers().remove(command.getContext().getSource().getPlayer());
-            System.out.println("disconnection check");
         } catch (CommandSyntaxException ignored) {}
     }
 }
