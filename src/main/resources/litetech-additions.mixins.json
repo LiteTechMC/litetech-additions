@@ -4,6 +4,7 @@
   "package": "cf.litetech.additions.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "server.PlayerManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
