@@ -20,7 +20,6 @@ public abstract class PlayerManagerMixin {
     public void broadcastChatMessage(Text message, MessageType type, UUID senderUuid, CallbackInfo ci) {
         ServerPlayerEntity sender = CarpetServer.minecraft_server.getPlayerManager().getPlayer(senderUuid);
 
-        System.out.println(BridgeConnectHook.getConnectedPlayers());
         if (BridgeConnectHook.getConnectedPlayers().contains(sender)) {
             ci.cancel();
             assert sender != null;

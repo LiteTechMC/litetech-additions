@@ -4,7 +4,10 @@
   "package": "cf.litetech.additions.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "server.PlayerManagerMixin"
+    "server.PlayerManagerMixin",
+    "server.objective.ScoreboardMixin",
+    "server.objective.ScoreboardObjectiveMixin",
+    "server.objective.ScoreboardPlayerScoreMixin"
   ],
   "injectors": {
     "defaultRequire": 1
