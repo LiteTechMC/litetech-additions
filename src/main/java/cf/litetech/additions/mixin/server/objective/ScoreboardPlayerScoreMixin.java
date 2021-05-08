@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ScoreboardPlayerScore.class)
-public class ScoreboardPlayerScoreMixin {
+public abstract class ScoreboardPlayerScoreMixin {
 
     @Shadow @Final @Nullable private ScoreboardObjective objective;
 

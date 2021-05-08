@@ -5,7 +5,7 @@ import net.minecraft.scoreboard.ScoreboardObjective;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ScoreboardObjective.class)
-public class ScoreboardObjectiveMixin implements ScoreboardObjectiveHelper {
+public abstract class ScoreboardObjectiveMixin implements ScoreboardObjectiveHelper {
     private boolean frozen;
 
     @Override
