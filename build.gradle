@@ -25,7 +25,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "com.github.iDarkLightning:litebot-mod:2d19e2a"
+    modImplementation "com.github.iDarkLightning:litebot-mod:6fb6cd8"
     modImplementation "carpet:fabric-carpet:${project.minecraft_version}-1.4.11+v200910"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
