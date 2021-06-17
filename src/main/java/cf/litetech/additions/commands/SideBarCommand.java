@@ -28,8 +28,13 @@ public class SideBarCommand {
         dispatcher.register(
                 CommandManager.literal("sidebar")
                         .then(CommandManager.literal("show")
-                                .then(CommandManager.argument("slot", ScoreboardSlotArgumentType.scoreboardSlot())
-                                        .then(CommandManager.argument("objective", ObjectiveArgumentType.objective())
+                                .then(CommandManager.argument("objective", ObjectiveArgumentType.objective())
+                                        .executes(context -> executeSetDisplay(
+                                                context.getSource(),
+                                                ObjectiveArgumentType.getObjective(context, "objective"),
+                                                1
+                                        ))
+                                        .then(CommandManager.argument("slot", ScoreboardSlotArgumentType.scoreboardSlot())
                                                 .executes(context -> executeSetDisplay(
                                                         context.getSource(),
                                                         ObjectiveArgumentType.getObjective(context, "objective"),
