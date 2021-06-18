@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "server.PlayerManagerMixin",
+    "server.SeedCommandMixin",
+    "server.ServerScoreboardMixin",
     "server.objective.ScoreboardMixin",
     "server.objective.ScoreboardObjectiveMixin",
     "server.objective.ScoreboardPlayerScoreMixin"

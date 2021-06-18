@@ -1,5 +1,7 @@
 package cf.litetech.additions.commands;
 
+import carpet.settings.SettingsManager;
+import cf.litetech.additions.carpet.CarpetAddonsSettings;
 import cf.litetech.additions.helpers.ScoreboardObjectiveHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -27,6 +29,7 @@ public class SideBarCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(
                 CommandManager.literal("sidebar")
+                        .requires(player -> SettingsManager.canUseCommand(player, CarpetAddonsSettings.sidebarCommand))
                         .then(CommandManager.literal("show")
                                 .then(CommandManager.argument("objective", ObjectiveArgumentType.objective())
                                         .executes(context -> executeSetDisplay(
@@ -45,7 +48,7 @@ public class SideBarCommand {
                                         .then(CommandManager.argument("objective", ObjectiveArgumentType.objective())
                                                 .executes(context -> executeGet(
                                                         context.getSource(),
-                                                        context.getSource().getPlayer(),
+                                                        EntityArgumentType.getPlayer(context, "player"),
                                                         ObjectiveArgumentType.getObjective(context, "objective")
                                                 )))))
                         .then(CommandManager.literal("clear")
