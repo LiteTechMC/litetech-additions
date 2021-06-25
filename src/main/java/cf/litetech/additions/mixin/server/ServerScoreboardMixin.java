@@ -78,27 +78,8 @@ public abstract class ServerScoreboardMixin extends Scoreboard  {
         for (ScoreboardPlayerScore score : this.getAllPlayerScores(objective))
             i += score.getScore();
 
-        System.out.println(i);
         return new ScoreboardPlayerUpdateS2CPacket(ServerScoreboard.UpdateMode.CHANGE, objective.getName(),
                 "Total", i);
     }
-
-//    @Redirect(
-//            method = "createChangePackets",
-//            at = @At(
-//                    value = "INVOKE",
-//                    target = "Ljava/util/List;add(Ljava/lang/Object;)Z",
-//                    ordinal = 2
-//            )
-//    )
-//    public boolean checkBotFilter(List<Packet<?>> list, Object packet) {
-//        System.out.println(this.score.getPlayerName());
-//        System.out.println(this.server.getPlayerManager().getPlayer(this.score.getPlayerName()) instanceof EntityPlayerMPFake);
-//        if (CarpetAddonsSettings.displayBots && (this.server.getPlayerManager().getPlayer(this.score.getPlayerName()) instanceof EntityPlayerMPFake)) {
-//            return false;
-//        }
-//        return list.add((ScoreboardPlayerUpdateS2CPacket) packet);
-//    }
-
 }
 
