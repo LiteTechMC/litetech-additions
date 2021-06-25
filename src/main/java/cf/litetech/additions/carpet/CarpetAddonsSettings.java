@@ -25,4 +25,15 @@ public class CarpetAddonsSettings {
     )
     public static boolean totalScore = true;
 
+    @Rule(
+            desc = "Display bots on the sidebar",
+            category = {LITETECH, SURVIVAL}
+    )
+    public static boolean displayBots = true;
+
+    @Rule(
+            desc = "Player's bedrock \"mined\" statistic is increased when a bedrock block is broken 2 game ticks after a piston is placed",
+            category = {LITETECH, SURVIVAL}
+    )
+    public static boolean bedrockBrokenStatistics = false;
 }

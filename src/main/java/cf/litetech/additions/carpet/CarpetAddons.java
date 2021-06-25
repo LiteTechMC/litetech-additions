@@ -3,6 +3,7 @@ package cf.litetech.additions.carpet;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import cf.litetech.additions.commands.SideBarCommand;
+import cf.litetech.additions.helpers.ServerPlayerEntityBedrockHelper;
 import cf.litetech.additions.litebot.hooks.BridgeConnectHook;
 import cf.litetech.additions.litebot.hooks.LocationGetHook;
 import cf.litetech.litebotmod.commands.CommandHook;
@@ -37,7 +38,19 @@ public class CarpetAddons implements CarpetExtension {
     @Override
     public void onTick(MinecraftServer server) {
         ((LocationGetHook) CommandHook.getRegisteredHooks().get("location.get")).onTick();
+
+        for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+            ServerPlayerEntityBedrockHelper castPlayer = (ServerPlayerEntityBedrockHelper) player;
+            if (castPlayer.hasPlacedPiston()) {
+                if (castPlayer.getTimeSincePistonPlaced() > 2) {
+                    castPlayer.resetTimeSincePistonPlaced();
+                }
+
+                castPlayer.incrementTimeSincePistonPlaced();
+            }
+        }
     }
+
 
     @Override
     public void onServerClosed(MinecraftServer server) {

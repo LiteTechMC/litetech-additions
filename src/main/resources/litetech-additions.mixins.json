@@ -4,9 +4,13 @@
   "package": "cf.litetech.additions.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "server.BlockMixin",
     "server.PlayerManagerMixin",
     "server.SeedCommandMixin",
+    "server.ServerPlayerEntityMixin",
     "server.ServerScoreboardMixin",
+    "server.WorldMixin",
+    "server.carpet.CarpetServerMixin",
     "server.objective.ScoreboardMixin",
     "server.objective.ScoreboardObjectiveMixin",
     "server.objective.ScoreboardPlayerScoreMixin"

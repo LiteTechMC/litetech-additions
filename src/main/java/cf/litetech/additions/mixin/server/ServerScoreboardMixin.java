@@ -1,5 +1,6 @@
 package cf.litetech.additions.mixin.server;
 
+import carpet.patches.EntityPlayerMPFake;
 import cf.litetech.additions.carpet.CarpetAddonsSettings;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.ScoreboardPlayerUpdateS2CPacket;
@@ -8,17 +9,20 @@ import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.scoreboard.ScoreboardPlayerScore;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @Mixin(ServerScoreboard.class)
 public abstract class ServerScoreboardMixin extends Scoreboard  {
@@ -74,9 +78,27 @@ public abstract class ServerScoreboardMixin extends Scoreboard  {
         for (ScoreboardPlayerScore score : this.getAllPlayerScores(objective))
             i += score.getScore();
 
+        System.out.println(i);
         return new ScoreboardPlayerUpdateS2CPacket(ServerScoreboard.UpdateMode.CHANGE, objective.getName(),
                 "Total", i);
     }
+
+//    @Redirect(
+//            method = "createChangePackets",
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Ljava/util/List;add(Ljava/lang/Object;)Z",
+//                    ordinal = 2
+//            )
+//    )
+//    public boolean checkBotFilter(List<Packet<?>> list, Object packet) {
+//        System.out.println(this.score.getPlayerName());
+//        System.out.println(this.server.getPlayerManager().getPlayer(this.score.getPlayerName()) instanceof EntityPlayerMPFake);
+//        if (CarpetAddonsSettings.displayBots && (this.server.getPlayerManager().getPlayer(this.score.getPlayerName()) instanceof EntityPlayerMPFake)) {
+//            return false;
+//        }
+//        return list.add((ScoreboardPlayerUpdateS2CPacket) packet);
+//    }
 
 }
 
