@@ -20,4 +20,8 @@ public class Extension implements LiteBotExtension {
         new PosHook("pos").register();
         new LocationGetHook("location.get").register();
     }
+
+
+    public void registerRPC() {
+    }
 }

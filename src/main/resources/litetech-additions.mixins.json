@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "cf.litetech.additions.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [
+  "server": [
     "server.BlockMixin",
     "server.PlayerManagerMixin",
     "server.SeedCommandMixin",
@@ -15,7 +15,13 @@
     "server.objective.ScoreboardObjectiveMixin",
     "server.objective.ScoreboardPlayerScoreMixin"
   ],
+  "client": [
+    "client.CommandSuggesterMixin",
+    "client.ChatComponentMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+  ]
 }
