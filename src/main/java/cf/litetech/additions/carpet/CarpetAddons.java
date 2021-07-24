@@ -2,6 +2,7 @@ package cf.litetech.additions.carpet;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import cf.litetech.additions.commands.GoalCommand;
 import cf.litetech.additions.commands.SideBarCommand;
 import cf.litetech.additions.helpers.ServerPlayerEntityBedrockHelper;
 import cf.litetech.additions.litebot.hooks.BridgeConnectHook;
@@ -33,6 +34,7 @@ public class CarpetAddons implements CarpetExtension {
     @Override
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
         SideBarCommand.register(dispatcher);
+        GoalCommand.register(dispatcher);
     }
 
     @Override
@@ -49,6 +51,8 @@ public class CarpetAddons implements CarpetExtension {
                 castPlayer.incrementTimeSincePistonPlaced();
             }
         }
+
+        GoalCommand.tick();
     }
 
 

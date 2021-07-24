@@ -14,6 +14,12 @@ public class CarpetAddonsSettings {
     public static boolean sidebarCommand = true;
 
     @Rule(
+            desc = "Set a goal for a scoreboard objective to complete",
+            category = {LITETECH, SURVIVAL}
+    )
+    public static boolean goalCommand = true;
+
+    @Rule(
             desc = "Permission Level required for the seed command",
             category = {LITETECH, SURVIVAL}
     )
