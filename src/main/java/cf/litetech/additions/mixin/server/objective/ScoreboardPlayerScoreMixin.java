@@ -34,7 +34,7 @@ public abstract class ScoreboardPlayerScoreMixin {
         ServerPlayerEntity player = CarpetServer.minecraft_server.getPlayerManager().getPlayer(this.getPlayerName());
         if (GoalCommand.GOALS.containsKey(player)) {
             HashMap<ScoreboardObjective, GoalCommand.Goal> playerGoal = GoalCommand.GOALS.get(player);
-            playerGoal.get(this.objective).incrementScore(amount);
+            if (playerGoal.containsKey(this.objective)) playerGoal.get(this.objective).incrementScore(amount);
         }
     }
 
@@ -49,7 +49,7 @@ public abstract class ScoreboardPlayerScoreMixin {
         ServerPlayerEntity player = CarpetServer.minecraft_server.getPlayerManager().getPlayer(this.getPlayerName());
         if (GoalCommand.GOALS.containsKey(player)) {
             HashMap<ScoreboardObjective, GoalCommand.Goal> playerGoal = GoalCommand.GOALS.get(player);
-            playerGoal.get(this.objective).incrementScore();
+            if (playerGoal.containsKey(this.objective)) playerGoal.get(this.objective).incrementScore();
         }
     }
 }

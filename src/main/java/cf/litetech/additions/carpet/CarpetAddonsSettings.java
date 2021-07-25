@@ -23,23 +23,23 @@ public class CarpetAddonsSettings {
             desc = "Permission Level required for the seed command",
             category = {LITETECH, SURVIVAL}
     )
-    public static int seedPermissionLevel = 0;
+    public static int seedPermissionLevel = 2;
 
     @Rule(
             desc = "Display total score on the sidebar",
             category = {LITETECH, SURVIVAL}
     )
-    public static boolean totalScore = true;
-
-    @Rule(
-            desc = "Display bots on the sidebar",
-            category = {LITETECH, SURVIVAL}
-    )
-    public static boolean displayBots = true;
+    public static boolean totalScore = false;
 
     @Rule(
             desc = "Player's bedrock \"mined\" statistic is increased when a bedrock block is broken 2 game ticks after a piston is placed",
             category = {LITETECH, SURVIVAL}
     )
     public static boolean bedrockBrokenStatistics = false;
+
+    @Rule(
+            desc = "Allows trident enchantments to work for drowned",
+            category = {LITETECH, SURVIVAL}
+    )
+    public static boolean drownedTridentNBTFix = false;
 }
