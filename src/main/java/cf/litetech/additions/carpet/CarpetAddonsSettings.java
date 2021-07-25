@@ -29,6 +29,12 @@ public class CarpetAddonsSettings {
     public static int seedPermissionLevel = 2;
 
     @Rule(
+            desc = "Permission Level required for the teams command",
+            category = {LITETECH, SURVIVAL}
+    )
+    public static int teamPermissionLevel = 2;
+
+    @Rule(
             desc = "The OP level used by default when OP-ing a player",
             extra = "-1 will use the default",
             validate = ValidatorOpLevel.class,

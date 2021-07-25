@@ -17,8 +17,9 @@
     "server.objective.ScoreboardPlayerScoreMixin",
     "server.op_level.DedicatedServerMixin",
     "server.op_level.IntegratedServerMixin",
+    "server.op_level.OpCommandMixin",
     "server.op_level.PlayerManagerMixin",
-    "server.op_level.OpCommandMixin"
+    "server.TeamCommandMixin"
   ],
   "client": [
     "client.CommandSuggesterMixin"
