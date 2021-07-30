@@ -1,6 +1,7 @@
 package cf.litetech.additions.mixin.server;
 
 import carpet.CarpetServer;
+import cf.litetech.additions.LiteTechAdditions;
 import cf.litetech.additions.litebot.hooks.BridgeConnectHook;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.PlayerManager;
@@ -18,6 +19,8 @@ public abstract class PlayerManagerMixin {
 
     @Inject(method = "broadcastChatMessage", at = @At("HEAD"), cancellable = true)
     public void broadcastChatMessage(Text message, MessageType type, UUID senderUuid, CallbackInfo ci) {
+        if (!LiteTechAdditions.RUNNING_LITEBOT_MOD) return;
+
         ServerPlayerEntity sender = CarpetServer.minecraft_server.getPlayerManager().getPlayer(senderUuid);
 
         if (BridgeConnectHook.getConnectedPlayers().contains(sender)) {

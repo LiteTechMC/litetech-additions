@@ -2,6 +2,7 @@ package cf.litetech.additions.carpet;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import cf.litetech.additions.LiteTechAdditions;
 import cf.litetech.additions.commands.GoalCommand;
 import cf.litetech.additions.commands.SideBarCommand;
 import cf.litetech.additions.helpers.ServerPlayerEntityBedrockHelper;
@@ -27,6 +28,8 @@ public class CarpetAddons implements CarpetExtension {
 
     @Override
     public void onPlayerLoggedOut(ServerPlayerEntity player) {
+        if (!LiteTechAdditions.RUNNING_LITEBOT_MOD) return;
+
         BridgeConnectHook.getConnectedPlayers().remove(player);
         ((LocationGetHook) CommandHook.getRegisteredHooks().get("location.get")).removeCrystal(player);
     }
@@ -39,6 +42,11 @@ public class CarpetAddons implements CarpetExtension {
 
     @Override
     public void onTick(MinecraftServer server) {
+        if (!LiteTechAdditions.RUNNING_LITEBOT_MOD) {
+            GoalCommand.tick();
+            return;
+        }
+
         ((LocationGetHook) CommandHook.getRegisteredHooks().get("location.get")).onTick();
 
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
@@ -51,13 +59,13 @@ public class CarpetAddons implements CarpetExtension {
                 castPlayer.incrementTimeSincePistonPlaced();
             }
         }
-
-        GoalCommand.tick();
     }
 
 
     @Override
     public void onServerClosed(MinecraftServer server) {
+        if (!LiteTechAdditions.RUNNING_LITEBOT_MOD) return;
+
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
             ((LocationGetHook) CommandHook.getRegisteredHooks().get("location.get")).removeCrystal(player);
         }

@@ -1,5 +1,6 @@
 package cf.litetech.additions.mixin.server.op_level;
 
+import cf.litetech.additions.carpet.CarpetAddonsSettings;
 import cf.litetech.additions.helpers.PlayerManagerOPWithLevelHelper;
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.CommandDispatcher;
@@ -52,6 +53,8 @@ public class OpCommandMixin {
             at = @At("HEAD")
     )
     private static void register(CommandDispatcher<ServerCommandSource> dispatcher, CallbackInfo ci) {
+        if (!CarpetAddonsSettings.betterOPCommand) return;
+
         ci.cancel();
 
         dispatcher.register(CommandManager.literal("op")
